@@ -8,6 +8,7 @@ export class Create extends React.Component {
             <div>
                 <h1>This is the create page</h1>
 
+                {/* Adding a bootstrap card that also has links to other URLS */}
                 <Card style={{ width: '18rem' }}>
                     <Card.Body>
                         <Card.Title>This is a card</Card.Title>
