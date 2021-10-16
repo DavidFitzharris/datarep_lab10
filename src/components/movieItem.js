@@ -1,0 +1,31 @@
+import React from 'react';
+import Card from 'react-bootstrap/Card'
+
+//Creating a MovieItem class which will be used to manage the display of our individual movies 
+export class MovieItem extends React.Component {
+    render() {
+        return (
+            <div>
+                {/* <h4>{this.props.movie.Title}</h4>
+                <p>{this.props.movie.Year}</p>
+                <img src={this.props.movie.Poster} width="200" height="200"></img>
+            */}
+            
+            {/* Using bootstrap card for a better UI */}
+                <Card>
+  <Card.Header>{this.props.movie.Title}</Card.Header>
+  <Card.Body>
+    <blockquote className="blockquote mb-0">
+    <img src={this.props.movie.Poster} width="200" height="200"></img>
+
+      <footer className="blockquote-footer">
+      <p>{this.props.movie.Year}</p>
+      </footer>
+    </blockquote>
+  </Card.Body>
+</Card>
+           
+            </div>
+        );
+    }
+}
