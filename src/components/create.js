@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { Card } from 'react-bootstrap';
 
 //Creating a Create class and marked for export
@@ -42,6 +43,20 @@ export class Create extends React.Component {
     onSubmit(e) {
         e.preventDefault();
         alert("Movie: " + this.state.Title + " Year: " + this.state.Year + " Poster: " + this.state.Poster);
+        
+        //Ref with server.js post method
+        const newMovie = {
+            title: this.state.Title,
+            year: this.state.Year,
+            poster: this.state.Poster
+        }
+        axios.post('http://localhost:4000/api/movies', newMovie)
+        .then((res)=>{
+            console.log(res);
+        })
+        .catch((err)=>{
+            console.log(err);
+        });
     }
 
     render() {
