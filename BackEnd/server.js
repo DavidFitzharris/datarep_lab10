@@ -115,6 +115,15 @@ app.post('/api/movies', (req, res)=>{
     res.send('Item Added');
 })
 
+//Adding the delete method
+app.delete('/api/movies/:id', (req,res)=>{
+    console.log("Delete Movie: "+ req.params.id);
+
+    MovieModel.findByIdAndDelete(req.params.id,(err,data) => {
+        res.send(data);
+    })
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
