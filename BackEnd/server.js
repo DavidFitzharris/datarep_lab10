@@ -4,6 +4,11 @@ const port = 4000
 const cors = require('cors');
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
+const path = require('path');
+
+//Config the build and static folder
+app.use(express.static(path.join(__dirname, '../build')));
+app.use('/static', express.static(path.join(__dirname, 'build//static')));
 
 //Used to parse the body of a http request
 // parse application/x-www-form-urlencoded
@@ -124,6 +129,11 @@ app.delete('/api/movies/:id', (req,res)=>{
     })
 })
 
+//Get method for index in build folder, * for all files
+app.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname+'/../build/index.html'));
+    });
+    
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
